@@ -1,9 +1,22 @@
 <p>home</p>
-<!-- <div *ngFor="let coin of coins">{{coin.id}}</div> -->
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Current Price</th>
+        <th scope="col">Price change 24h</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let coin of coins|async">
+        <th scope = "row">{{coin.id}}</th>
+        <td>{{coin.current_price}}</td>
+        <td [style.color]="coin.price_change_percentage_24h >0 ? 'green': 'red'">{{coin.price_change_percentage_24h / 100 | percent:'.2'}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
 
 
-
-
-    <div *ngFor= "let coin of coins|async">
-            {{coin.id}}
-    </div>
