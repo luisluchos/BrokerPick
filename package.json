@@ -15,5 +15,8 @@
   "devDependencies": {
     "express-generator": "^4.16.1",
     "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "@auth0/auth0-angular": "^1.4.0"
   }
 }
