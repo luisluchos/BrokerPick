@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+const walletsRouter = require('../routes/wallets.router')
 
-router.get('/trades', function(req, res, next) {
-  res.json({comments: [{id: 1, name: 'me'}]})
-});
+
+
+
+router.use("/wallets", walletsRouter);
 
 
 router.use('*', (req, res, next)=>{
