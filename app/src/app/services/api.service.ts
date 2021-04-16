@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -23,9 +23,15 @@ export class ApiService {
     return this.http.get(`${this.url}`)
   }
 
-  getAllTrades() {
-    return this.http.get(`${this.BASE_URI}/trades`);
-  }
+  getAllWallets() {
+    return this.http.get(`${this.BASE_URI}/wallets`);
+  };
+
+  getWalletByUser(user:string): Observable<any> {
+    let params = new HttpParams()
+      .set('user', user)
+      return this.http.get(`${this.BASE_URI}/wallets`,{params:params});
+  };
 
 
 

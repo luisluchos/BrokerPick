@@ -1,8 +1,10 @@
 const walletModel = require('../models/wallet.model');
 
 module.exports = {
-  getWallets: (async (req, res, next) => {
-    let wallets = await walletModel.find();
+  getWalletsByUser: (async (req, res, next) => {
+    let user = req.query.user
+
+    let wallets = await walletModel.find({"email": user});
     res.json({wallets: wallets});
   })
 }

@@ -11,8 +11,8 @@ const CoinsSchema = new Schema({
 var WalletSchema = new Schema(
     {
         email: {type: String, required: true},
-        coins:{ type: CoinsSchema 
-        },
+        coins:[ {type : CoinsSchema 
+        }],
     },
     {
         timestamps: true

@@ -5,6 +5,6 @@ const walletsController = require('../controllers/wallets.controllers');
 
 /**GET wallets */
 
-router.get('/', walletsController.getWallets);
+router.get('/', walletsController.getWalletsByUser);
 
 module.exports = router;

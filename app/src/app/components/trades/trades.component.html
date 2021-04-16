@@ -1,1 +1,9 @@
-<p>trades works!</p>
+<ul *ngIf="auth.user$ | async as user">
+    <li>{{ user.name }}</li>
+    <li>{{ user.email }}</li>
+    <li>{{user |json }}</li>
+  </ul>
+  <span>{{userWallet.email}}</span>
+  <span>{{userWallet.coins}}</span>
+  
+  

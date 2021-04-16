@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
+import { ApiService } from 'src/app/services/api.service';
+import { map } from 'rxjs/operators';
+
+type Wallet= {
+  email: string,
+  coins: Array<{}>,
+ 
+};
 
 @Component({
   selector: 'app-trades',
@@ -8,17 +16,36 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TradesComponent implements OnInit {
 
-  trades:any;
+  //como evitar poner any, ¿debería ir como observable?
+userWallet:any =[]
+userData:any;
 
-  constructor(private route: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.route.data.subscribe(data => {
-      console.log("data",data);
-      ;
-    });
-    
-    
+  constructor(public auth: AuthService, public apiService : ApiService) { 
+    this.auth.user$.subscribe((data:any) =>{
+      this.userData= data.email
+      console.log("userData:", this.userData);
+      
+    })
   }
 
+  ngOnInit(): void {
+
+  this.apiService.getWalletByUser(this.userData).subscribe((data:any)=>{
+    this.userWallet=data.wallets[0]
+  
+   console.log("coins", data.wallets[0].coins); 
+   console.log(data.wallets[0]);
+      
+  });
+
+  /**
+   * Queremos sacar la suma de la cantidad de coins que tiene un user
+   */
+  this.apiService.getWalletByUser(this.userData)
+  .pipe(map(((data:any) => data.wallets[0].coins.reduce((a:any, b:any) => a + b.cantidad, 0))))
+  .subscribe((data:any)=>console.log("total Coins",data)
+  );
+  
+
+}
 }
