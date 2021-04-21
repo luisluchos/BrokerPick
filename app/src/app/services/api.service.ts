@@ -33,6 +33,11 @@ export class ApiService {
       return this.http.get(`${this.BASE_URI}/wallets`,{params:params});
   };
 
+  editWallet(payload:any): Observable<any> {
+    
+    return this.http.post(`${this.BASE_URI}/wallets`, payload);
+  }
+
 
 
 

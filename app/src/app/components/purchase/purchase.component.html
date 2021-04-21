@@ -1,0 +1,66 @@
+<p>purchase works!</p>
+
+<div *ngFor= "let coin of coins|async">
+    <app-purchase-snippet [coin]= "coin.id" [price]= "coin.current_price"></app-purchase-snippet>
+
+</div>
+
+<!-- <p>home</p>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Current Price</th>
+        <th scope="col">Price change 24h</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let coin of coins|async">
+        <th scope = "row">{{coin.id}}</th>
+        <td>{{coin.current_price}}</td>
+        <td [style.color]="coin.price_change_percentage_24h >0 ? 'green': 'red'">{{coin.price_change_percentage_24h / 100 | percent:'.2'}}</td>
+        
+      </tr>
+    </tbody>
+  </table> -->
+
+  
+
+
+
+ <!--  <form [formGroup]="purchaseForm" (ngSubmit)="save($event)">
+
+    <div *ngFor= "let coin of coins|async" class="row p-3">
+
+       
+        <label>
+              Coin 
+            <input type="text" formControlName="coin" placeholder="{{coin.id}}">
+          </label> 
+        
+          <label>
+            Price:
+            <input type="text" formControlName="price" placeholder="{{coin.current_price}}">
+          </label>
+      
+          <label>
+              number:
+              <input type="text" formControlName="number" value="1">
+         </label>
+        
+            <div class="">
+              <button class="btn btn-dark" type="submit" [disabled]="purchaseForm.invalid">
+                  +
+              </button>
+          </div>
+        
+    </div>
+  
+    
+  </form>
+
+  <p>
+    Form Status: {{ purchaseForm.status }} -->
+    

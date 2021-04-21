@@ -13,6 +13,10 @@ import { NavBarComponent } from './views/nav-bar/nav-bar.component';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { TradesComponent } from './components/trades/trades.component';
+import { PurchaseComponent } from './components/purchase/purchase.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PurchaseSnippetComponent } from './components/purchase-snippet/purchase-snippet.component';
+import { UserWalletComponent } from './components/user-wallet/user-wallet.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +26,15 @@ import { TradesComponent } from './components/trades/trades.component';
     NavBarComponent,
     LoginButtonComponent,
     LogoutButtonComponent,
-    TradesComponent
+    TradesComponent,
+    PurchaseComponent,
+    PurchaseSnippetComponent,
+    UserWalletComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AuthModule.forRoot({
       domain: 'luisluchos.eu.auth0.com',

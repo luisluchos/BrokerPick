@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-start">
+    <p class="mr-4">{{coin}}</p>
+    <P class="mr-4">{{price}}</P>
+    <button (click)="save($event)">Purchase</button>
+</div>
+
+
+
+  
+
+
+<!-- OTRA OPCIÓN SRÍA HACERLO CON UN FORM -->
+  <!-- 
+   <form [formGroup]="purchaseForm" (ngSubmit)="save($event)">
+
+        <label>
+              Coin 
+            <input type="text" formControlName="coin" placeholder="{{coin.id}}">
+          </label> 
+        
+          <label>
+            Price:
+            <input type="text" formControlName="price" placeholder="{{coin.current_price}}">
+          </label>
+      
+          <label>
+              number:
+              <input type="text" formControlName="number" value="1">
+         </label>
+        
+            <div class="">
+              <button class="btn btn-dark" type="submit" [disabled]="purchaseForm.invalid">
+                  +
+              </button>
+          </div>
+    
+  </form> -->
