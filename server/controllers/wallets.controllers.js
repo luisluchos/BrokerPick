@@ -8,14 +8,23 @@ module.exports = {
     res.json({wallets: wallets});
   }),
 
-  editWallet: (async(req,res,next)=>{
+  addWallet: (async(req,res,next)=>{
    // let walletEmail = await walletModel.find({"email": user});
-   console.log("body",req.body);
+   console.log("bpurchase",req.body);
     payload = req.body;
-    await walletModel.create(payload);
+    
+    await walletModel.updateOne({email: payload.email}, {$push : {coins: [{coin: payload.coin, purchase_price: payload.purchase_price, sold:payload.sold}]}},{upsert: true, setDefaultsOnInsert: true});
     res.redirect(200, '/wallet'); 
 
   }),
+
+  sellCoin: (async(req,res,next)=>{
+    console.log("sell",req.body);
+    payload= req.body;
+
+    await walletModel.findOneAndUpdate({'coins._id':payload.id}, {'coins.$.sold' : payload.sold},{upsert: true})
+    res.json({users: payload});
+  })
 }
 
-//$set. Este operador nos permite modificar (o crear si no existe) uno o varios campos sin tener que introducir el documento JSON completo.
+// the setDefaultOnInsert option to also apply defaults if the upsert creates a new document.

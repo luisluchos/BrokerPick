@@ -10,6 +10,8 @@ export class ApiService {
 
   BASE_URI = 'http://localhost:3000/api';
   private url= "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&"
+  private url2= "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin"
+  private currency ="&vs_currencies=usd"
 
   constructor(private http : HttpClient) { }
 
@@ -21,8 +23,12 @@ export class ApiService {
 
   getAllCoins():Observable<object>{
     return this.http.get(`${this.url}`)
-  }
+  };
 
+  getPriceCoin(coin:any):Observable<object>{
+    return this.http.get("https://api.coingecko.com/api/v3/simple/price?ids="+coin+"&vs_currencies=usd")
+  }
+;
   getAllWallets() {
     return this.http.get(`${this.BASE_URI}/wallets`);
   };
@@ -33,9 +39,14 @@ export class ApiService {
       return this.http.get(`${this.BASE_URI}/wallets`,{params:params});
   };
 
-  editWallet(payload:any): Observable<any> {
+  addWallet(payload:any): Observable<any> {
     
     return this.http.post(`${this.BASE_URI}/wallets`, payload);
+  };
+
+  sellCoin(payload:any): Observable<any> {
+
+    return this.http.post(`${this.BASE_URI}/wallets/sellCoin`, payload);
   }
 
 

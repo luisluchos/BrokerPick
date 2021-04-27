@@ -17,6 +17,7 @@ import { PurchaseComponent } from './components/purchase/purchase.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PurchaseSnippetComponent } from './components/purchase-snippet/purchase-snippet.component';
 import { UserWalletComponent } from './components/user-wallet/user-wallet.component';
+import { UserWalletSnippetComponent } from './components/user-wallet-snippet/user-wallet-snippet.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserWalletComponent } from './components/user-wallet/user-wallet.compon
     TradesComponent,
     PurchaseComponent,
     PurchaseSnippetComponent,
-    UserWalletComponent
+    UserWalletComponent,
+    UserWalletSnippetComponent
   ],
   imports: [
     BrowserModule,

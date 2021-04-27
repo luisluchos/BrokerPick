@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class PurchaseSnippetComponent implements OnInit {
   @Input() coin: string="";
   @Input() price: number= 0;
+  
 
 
   userEmail:any;
@@ -28,13 +29,11 @@ export class PurchaseSnippetComponent implements OnInit {
 
   save(event:any) {
     event.preventDefault()  
-    let payload = {coin : this.coin, price: this.price, quantity: 1 , email: this.userEmail};
-    this.apiService.editWallet(payload).subscribe((data:any)=>{
+    let payload = {coin : this.coin, purchase_price: this.price, quantity: 1 , email: this.userEmail, sold: false};
+    this.apiService.addWallet(payload).subscribe((data:any)=>{
       console.log("data post", data);
       
     });
-
-    console.log("coin", this.coin);
     console.log("prueba", payload);
       
   };

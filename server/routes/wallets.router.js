@@ -7,6 +7,8 @@ const walletsController = require('../controllers/wallets.controllers');
 
 router.get('/', walletsController.getWalletsByUser);
 
-router.post('/', walletsController.editWallet);
+router.post('/', walletsController.addWallet);
+
+router.post('/sellCoin', walletsController.sellCoin);
 
 module.exports = router;

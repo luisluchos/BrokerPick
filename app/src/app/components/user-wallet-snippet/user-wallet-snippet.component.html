@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-start">
+    <p class="mr-4">{{id}}</p>
+    <p class="mr-4">{{coin}}</p>
+    <p class="mr-4">{{purchase_price}}</p>
+    <p class="mr-4">{{market_price}}</p>
+    <p class="mr-4">{{((market_price-purchase_price) / purchase_price)*100 }}%</p>
+    
+   
+    <button (click)="sell($event)">Sell</button>
+</div>
