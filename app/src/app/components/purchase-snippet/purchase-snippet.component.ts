@@ -11,42 +11,41 @@ import { ApiService } from 'src/app/services/api.service';
 export class PurchaseSnippetComponent implements OnInit {
   @Input() coin: string="";
   @Input() price: number= 0;
+
   
-
-
-  userEmail:any;
-
-  constructor(public auth: AuthService, public apiService: ApiService) {
-
-    this.auth.user$.subscribe((data:any) =>{
-      this.userEmail= data.email
-      console.log("userData:", this.userEmail);   
-    });
-    
-   };
+  constructor(public auth: AuthService, public apiService: ApiService) {};
 
   ngOnInit(): void {}
 
+
+/**
+ * Guardamos la seleccin en la base de datos
+ * obtenemos primero los datos del usuario
+ * obtemos el resto de datos que vienen del padre.
+ * mandamos el payload al apiservice
+ *
+ */
   save(event:any) {
     event.preventDefault()  
-    let payload = {coin : this.coin, purchase_price: this.price, quantity: 1 , email: this.userEmail, sold: false};
-    this.apiService.addWallet(payload).subscribe((data:any)=>{
-      console.log("data post", data);
+
+    this.auth.user$.subscribe((data:any) =>{
+      console.log(data);
       
-    });
-    console.log("prueba", payload);
-      
+    let payload = {
+      coin : this.coin, 
+      purchase_price: this.price, 
+      quantity: 1 ,
+      picture: data.picture, 
+      name: data.name, 
+      nickname: data.nickname, 
+      email: data.email, 
+      idSub: data.sub.slice(6),
+      updated_at: data.updated_at,
+      sold: false};
+
+    this.apiService.addWallet(payload).subscribe();
+     });       
   };
 
 };
 
-
- /*  buildform() {
-    this.purchaseForm = this.fb.group({
-      price: [''],
-      coin: [''],
-      number: ['']
-    });
-    
-    this.purchaseForm.get('coin').setValue(this.coin)
-  }; */

@@ -1,3 +1,6 @@
+<app-user-card-snippet></app-user-card-snippet>
+<app-margin></app-margin>
+
 <div class="d-flex justify-content-start font-weight-bold">
 <p class="mr-4">Name</p>
 <p class="mr-4">Purchase Price</p>
@@ -5,7 +8,7 @@
 <p class="mr-4">%</p>
 </div>
 
-
+<div>Margin, stats</div>
 <div *ngFor= "let coin of myWallet">
     <app-user-wallet-snippet [coin]="coin.coinName" [purchase_price] = "coin.purchase_price" [market_price]="coin.market_price" [id]="coin.id"></app-user-wallet-snippet>
  </div>

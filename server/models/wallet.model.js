@@ -7,16 +7,26 @@ const CoinsSchema = new Schema({
     purchase_price: Number,
     sold: Boolean,
     sold_price: Number,
-    margin: Number
-});
+    margin: Number,
+    coin_sold: Number,
+}
+);
 
 var WalletSchema = new Schema({
 email: {type: String, required: true},
+picture: {type: String, required: true},
+nickname:{type: String, required: true},
+name:{type: String, required: true},
+user_created:{type: Date, required: true},
+idSub:{type: String, required: true},
 coins: [{
     type: CoinsSchema
 
 }],
 
+      },
+      {
+        timestamps: true
       });
       
       module.exports = mongoose.model('wallets', WalletSchema);

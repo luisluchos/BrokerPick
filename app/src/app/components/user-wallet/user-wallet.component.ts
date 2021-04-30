@@ -11,17 +11,20 @@ import { ApiService } from 'src/app/services/api.service';
 export class UserWalletComponent implements OnInit {
 
   userEmail:string=""
+  idSubscription:string=""
   myWallet:any=[]
   
 
   
-
   constructor(private apiService: ApiService, public auth: AuthService) {
     this.auth.user$.subscribe((data:any) =>{
       this.userEmail= data.email
-      console.log("userData:", this.userEmail); 
-      
+      this.idSubscription = data.sub.slice(6)
+      console.log("userData:", this.idSubscription);   
     });
+
+  
+     
    }
 
   ngOnInit(): void {
@@ -34,7 +37,7 @@ export class UserWalletComponent implements OnInit {
      * GUARDAMOS EN LA VARIABLE MEDIANTE PUSH EL OBJETO.
      */
    
-   this.apiService.getWalletByUser(this.userEmail)
+   this.apiService.getWalletByUser(this.idSubscription)
    .subscribe((data:any)=>{
      data.wallets.map((values:any)=>{
       let data = values.coins.filter((dataWallet:any)=> !dataWallet.sold)  
@@ -50,11 +53,14 @@ export class UserWalletComponent implements OnInit {
           console.log("myWalletobs",this.myWallet);   
        });
         
-      })
+      });
       
-     })
+     });
      
-   })
+   });
+
+   
+
    /*  .pipe(
       map((values:any) => {
         return values.wallets.filter((dataWallet:any) => !dataWallet.coins.sold)})

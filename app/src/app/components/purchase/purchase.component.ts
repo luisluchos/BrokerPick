@@ -4,6 +4,7 @@ import { timer } from 'rxjs';
 import { mergeMap } from 'rxjs/operators'
 
 import { FormBuilder } from '@angular/forms';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-purchase',
@@ -12,25 +13,10 @@ import { FormBuilder } from '@angular/forms';
 })
 export class PurchaseComponent implements OnInit {
 
-  purchaseForm:any;
-
-  buildform() {
-    this.purchaseForm = this.fb.group({
-      price: [''],
-      coin: [''],
-      number: ['']
-    });
-    
-    //this.purchaseForm.get('coin').setValue(this.coins.id)
-  }
-  
   coins:any = []
-  moneda:any =[]
+ 
 
-  constructor(private apiServce: ApiService,private fb: FormBuilder) { 
-    this.buildform();
-   
-  }
+  constructor(private apiServce: ApiService,private fb: FormBuilder, public auth: AuthService) { }
 
   ngOnInit(): void {
 
@@ -47,12 +33,5 @@ export class PurchaseComponent implements OnInit {
     In our case, we will be turning every number emitted by timer into an HTTP request to our backend */
     
   }
-
-  save(event:any) {
-    event.preventDefault()
-    let purchase = this.purchaseForm.value
-    console.log("purchase ",purchase);    
-  };
-
 
 }

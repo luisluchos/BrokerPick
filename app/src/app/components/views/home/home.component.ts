@@ -13,6 +13,7 @@ import { concatMap, map, tap, switchMap, mergeMap } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
 
   coins:any = []
+  userWallets:Observable<any> = new Observable()
 
   constructor(private apiServce: ApiService) { 
     
@@ -26,12 +27,18 @@ export class HomeComponent implements OnInit {
         mergeMap(() => this.apiServce.getAllCoins())
     );
 
-    /* interval works, but it would start our polling after 60000 milliseconds. We want to begin polling right away. 
-    timer is another function that allows us to start the interval whenever we want, including right now */
+    /* timer is another function that allows us to start the interval whenever we want, including right now */
 
     /* switchMap, which turns an input Observable into another Observable. 
     In our case, we will be turning every number emitted by timer into an HTTP request to our backend */
     
-  }
+    this.userWallets = this.apiServce.getAllUserWallets()
+    .pipe(map((data:any)=>{
+      console.log("wallets: ",data.wallets);
+       return data.wallets
+   //.pipe porque queremos entrar a la información de wallets (data.wallets)
+    
+    }));
 
+};
 }

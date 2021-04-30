@@ -18,6 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PurchaseSnippetComponent } from './components/purchase-snippet/purchase-snippet.component';
 import { UserWalletComponent } from './components/user-wallet/user-wallet.component';
 import { UserWalletSnippetComponent } from './components/user-wallet-snippet/user-wallet-snippet.component';
+import { UserCardSnippetComponent } from './components/user-card-snippet/user-card-snippet.component';
+import { NoImagesPipe } from './components/pipes/no-images.pipe';
+import { MarginComponent } from './components/margin/margin.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { UserWalletSnippetComponent } from './components/user-wallet-snippet/use
     PurchaseComponent,
     PurchaseSnippetComponent,
     UserWalletComponent,
-    UserWalletSnippetComponent
+    UserWalletSnippetComponent,
+    UserCardSnippetComponent,
+    NoImagesPipe,
+    MarginComponent
   ],
   imports: [
     BrowserModule,

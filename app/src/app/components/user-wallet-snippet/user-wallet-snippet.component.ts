@@ -23,10 +23,18 @@ export class UserWalletSnippetComponent implements OnInit {
 
   }
 
+  /**
+   * save in dataBase
+   * @param margin operation margin
+   * @param payload data that we send
+   * reload th page
+   */
+
   sell(event:any) {
     
-    event.preventDefault()  
-    let payload = { id: this.id, market_price: this.market_price, sold: true}
+    event.preventDefault()
+    let margin = (this.market_price-this.purchase_price)/this.purchase_price 
+    let payload = { id: this.id, market_price: this.market_price, sold: true, margin: margin, coin_sold:1}
     console.log("sell",payload);
 
     this.apiService.sellCoin(payload).subscribe((data:any)=>{
@@ -45,4 +53,5 @@ export class UserWalletSnippetComponent implements OnInit {
   };
 
  //ERROR AL PONER ONDESTROY
+
 }

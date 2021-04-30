@@ -29,8 +29,8 @@ export class ApiService {
     return this.http.get("https://api.coingecko.com/api/v3/simple/price?ids="+coin+"&vs_currencies=usd")
   }
 ;
-  getAllWallets() {
-    return this.http.get(`${this.BASE_URI}/wallets`);
+  getAllUserWallets() {
+    return this.http.get(`${this.BASE_URI}/wallets/usersWallets`);
   };
 
   getWalletByUser(user:string): Observable<any> {
@@ -47,7 +47,17 @@ export class ApiService {
   sellCoin(payload:any): Observable<any> {
 
     return this.http.post(`${this.BASE_URI}/wallets/sellCoin`, payload);
-  }
+  };
+
+  getMarginByUser(user:string): Observable<any> {
+    let params = new HttpParams()
+      .set('user', user)
+      return this.http.get(`${this.BASE_URI}/wallets/userMargin`,{params:params});
+  };
+
+  getAllMargins(): Observable<any> {
+      return this.http.get(`${this.BASE_URI}/wallets/usersMargin`);
+  };
 
 
 

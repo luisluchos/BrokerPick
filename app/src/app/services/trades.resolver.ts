@@ -17,6 +17,6 @@ export class TradesResolver implements Resolve<boolean> {
   ) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-    return this.apiService.getAllWallets();
+    return this.apiService.getAllUserWallets();
   }
 }
