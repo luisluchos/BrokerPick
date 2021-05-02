@@ -1,0 +1,22 @@
+<app-user-card-snippet></app-user-card-snippet>
+<div>Margin, stats</div>
+<app-margin></app-margin>
+
+
+
+
+<div class="d-flex justify-content-start font-weight-bold">
+<p class="mr-4">Name</p>
+<p class="mr-4">Purchase Price</p>
+<p class="mr-4">Market Price</p>
+<p class="mr-4">%</p>
+</div>
+
+
+<h2 class="p-4">Operaciones abiertas</h2>
+<div *ngFor= "let coin of myWallet">
+    <app-user-wallet-snippet [coin]="coin.coinName" [purchase_price] = "coin.purchase_price" [market_price]="coin.market_price" [id]="coin.id"></app-user-wallet-snippet>
+ </div>
+ <h2 class="p-4">Histórico</h2>
+<app-wallet-historical ></app-wallet-historical>
+ 

@@ -16,11 +16,14 @@ import { TradesComponent } from './components/trades/trades.component';
 import { PurchaseComponent } from './components/purchase/purchase.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PurchaseSnippetComponent } from './components/purchase-snippet/purchase-snippet.component';
-import { UserWalletComponent } from './components/user-wallet/user-wallet.component';
+import { UserPrivateWalletComponent } from './components/user-private-wallet/user-private-wallet.component';
 import { UserWalletSnippetComponent } from './components/user-wallet-snippet/user-wallet-snippet.component';
 import { UserCardSnippetComponent } from './components/user-card-snippet/user-card-snippet.component';
 import { NoImagesPipe } from './components/pipes/no-images.pipe';
 import { MarginComponent } from './components/margin/margin.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { UserWalletDetailsComponent } from './components/user-wallet-details/user-wallet-details.component';
+import { WalletHistoricalComponent } from './components/wallet-historical/wallet-historical.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +36,14 @@ import { MarginComponent } from './components/margin/margin.component';
     TradesComponent,
     PurchaseComponent,
     PurchaseSnippetComponent,
-    UserWalletComponent,
+    UserPrivateWalletComponent,
     UserWalletSnippetComponent,
     UserCardSnippetComponent,
     NoImagesPipe,
-    MarginComponent
+    MarginComponent,
+    UserListComponent,
+    UserWalletDetailsComponent,
+    WalletHistoricalComponent
   ],
   imports: [
     BrowserModule,

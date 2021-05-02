@@ -36,7 +36,7 @@ export class PurchaseSnippetComponent implements OnInit {
       purchase_price: this.price, 
       quantity: 1 ,
       picture: data.picture, 
-      name: data.name, 
+      name: data.nickname, 
       nickname: data.nickname, 
       email: data.email, 
       idSub: data.sub.slice(6),

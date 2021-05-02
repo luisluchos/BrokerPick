@@ -47,6 +47,7 @@ module.exports = {
   getAllMargins:(async(req,res,next)=>{
     let margin = await walletModel.aggregate([{"$group": {_id: {
       "_id": "$_id",
+      "idSub":"$idSub",
       "email": "$email",
       "name": "$name",
       "coins_margin":"$coins.margin",
@@ -60,7 +61,7 @@ module.exports = {
     },
     totalTransactions: {
       "$sum":{
-        "$sum":"$coins.margin"
+        "$sum":"$coins.coin_sold"
       } 
     }}}])
 

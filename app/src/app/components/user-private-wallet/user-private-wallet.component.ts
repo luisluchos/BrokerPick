@@ -4,11 +4,11 @@ import { filter, map,find } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
-  selector: 'app-user-wallet',
-  templateUrl: './user-wallet.component.html',
-  styleUrls: ['./user-wallet.component.scss']
+  selector: 'app-user-private-wallet',
+  templateUrl: './user-private-wallet.component.html',
+  styleUrls: ['./user-private-wallet.component.scss']
 })
-export class UserWalletComponent implements OnInit {
+export class UserPrivateWalletComponent implements OnInit {
 
   userEmail:string=""
   idSubscription:string=""
@@ -17,9 +17,11 @@ export class UserWalletComponent implements OnInit {
 
   
   constructor(private apiService: ApiService, public auth: AuthService) {
+    
     this.auth.user$.subscribe((data:any) =>{
       this.userEmail= data.email
       this.idSubscription = data.sub.slice(6)
+      console.log("userData:", data); 
       console.log("userData:", this.idSubscription);   
     });
 

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -15,7 +16,7 @@ export class UserCardSnippetComponent implements OnInit {
   idSubscription:any
   margin:Observable<any> = new Observable()
 
-  constructor(private apiService : ApiService) {}
+  constructor(private apiService : ApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.margin = this.apiService.getAllMargins().
@@ -24,6 +25,14 @@ export class UserCardSnippetComponent implements OnInit {
       return data.allMargin    
     }))
    
+  };
+
+  verUserDetail(item:any){
+    let idUser = item._id.idSub
+    console.log("ver datos de usuario: ", item);
+    this.router.navigate(['/userList', idUser])
+    
+    
   }
 
 }

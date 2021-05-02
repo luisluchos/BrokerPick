@@ -6,6 +6,9 @@
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" aria-current="page" routerLink="home">Home</a>
           </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/userList']">Usuarios</a>
+          </li>
           <li *ngIf="login" class="nav-item" routerLinkActive="active">
             <a class="nav-link" routerLink="protected">Protected</a>
           </li>
