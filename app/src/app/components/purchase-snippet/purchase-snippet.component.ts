@@ -47,5 +47,8 @@ export class PurchaseSnippetComponent implements OnInit {
      });       
   };
 
+
+  
+
 };
 

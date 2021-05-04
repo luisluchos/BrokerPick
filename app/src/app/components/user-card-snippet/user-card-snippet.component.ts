@@ -13,13 +13,15 @@ import { Router } from '@angular/router';
 })
 export class UserCardSnippetComponent implements OnInit {
 
+  @Input() limit:string=""
+
   idSubscription:any
   margin:Observable<any> = new Observable()
 
   constructor(private apiService : ApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.margin = this.apiService.getAllMargins().
+    this.margin = this.apiService.getAllMargins(this.limit).
     pipe(map((data:any)=>{
       console.log("margin,",data.allMargin); 
       return data.allMargin    

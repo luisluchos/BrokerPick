@@ -19,7 +19,7 @@ module.exports = {
    console.log("bpurchase",req.body);
     payload = req.body;
     
-    await walletModel.updateOne({idSub: payload.idSub, email: payload.email, picture: payload.picture ,name: payload.name, nickname: payload.nickname, user_created: payload.updated_at}, 
+    await walletModel.updateOne({idSub: payload.idSub, email: payload.email, picture: payload.picture ,name: payload.name, nickname: payload.nickname}, 
                                 {$push : {coins: [{coin: payload.coin, purchase_price: payload.purchase_price, sold_price: payload.market_price,margin: payload.margin, sold:payload.sold}]}},
                                 {upsert: true, setDefaultsOnInsert: true});
     res.redirect(200, '/wallet'); 
@@ -40,11 +40,45 @@ module.exports = {
     
     let margin = await walletModel.aggregate([
                                               {"$match" : {"idSub": user}}, 
-                                              {"$group": {"_id": "$_id", "margin" :{"$sum":{"$sum":"$coins.margin"}}}}])
+                                              {"$group": {_id: {
+                                                "_id": "$_id",
+                                                "idSub":"$idSub",
+                                                "email": "$email",
+                                                "name": "$name",
+                                                "picture": "$picture"
+                                              }, margin :{"$sum":{"$sum":"$coins.margin"}}}}])
     res.json({userMargin: margin});
   }),
 
+  //*****BUSCADOR********
+  getMarginByUserName:(async(req,res,next)=>{
+    let limit = req.query.limit ? parseInt(req.query.limit) : 5;
+    let user = req.query.user
+    let regex = new RegExp(user,'i')
+  
+    let margin = await walletModel.aggregate([
+      {"$match" : {"name": regex}}, 
+      {"$group": {_id: {
+        "_id": "$_id",
+        "idSub":"$idSub",
+        "email": "$email",
+        "name": "$name",
+        "picture": "$picture"
+      }, totalMargin :{"$sum":{"$sum":"$coins.margin"
+    }
+  },
+      totalTransactions: {
+        "$sum":{
+          "$sum":"$coins.coin_sold"
+        } 
+      }}}]).limit(limit)
+res.json({userMargin: margin});
+}),
+
+
+
   getAllMargins:(async(req,res,next)=>{
+    let limit = req.query.limit ? parseInt(req.query.limit) : 5;
     let margin = await walletModel.aggregate([{"$group": {_id: {
       "_id": "$_id",
       "idSub":"$idSub",
@@ -63,7 +97,7 @@ module.exports = {
       "$sum":{
         "$sum":"$coins.coin_sold"
       } 
-    }}}])
+    }}}]).sort({'totalMargin':-1}).limit(limit)
 
     res.json({allMargin: margin});
   })

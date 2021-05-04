@@ -16,7 +16,7 @@ var WalletSchema = new Schema({
 email: {type: String, required: true},
 picture: {type: String, required: true},
 nickname:{type: String, required: true},
-name:{type: String, required: true},
+name:{type: String, required: true, index:true},
 user_created:{type: Date, required: true},
 idSub:{type: String, required: true},
 coins: [{

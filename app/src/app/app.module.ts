@@ -24,6 +24,8 @@ import { MarginComponent } from './components/margin/margin.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserWalletDetailsComponent } from './components/user-wallet-details/user-wallet-details.component';
 import { WalletHistoricalComponent } from './components/wallet-historical/wallet-historical.component';
+import { SearchComponent } from './components/search/search.component';
+import { SocialComponent } from './components/social/social.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { WalletHistoricalComponent } from './components/wallet-historical/wallet
     MarginComponent,
     UserListComponent,
     UserWalletDetailsComponent,
-    WalletHistoricalComponent
+    WalletHistoricalComponent,
+    SearchComponent,
+    SocialComponent
   ],
   imports: [
     BrowserModule,

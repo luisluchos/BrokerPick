@@ -1,7 +1,7 @@
 
    <div *ngIf="(historicalData | async) as newData">
        <div class="d-flex justify-content-start"  *ngFor="let data of newData">
-        <p class="mr-4">{{data.coin | uppercase}}</p>
+        <p class="mr-4 ">{{data.coin | uppercase}}</p>
         <p class="mr-4">{{data.purchase_price}}</p>
         <p class="mr-4">{{data.sold_price}}</p>
         <p class="mr-4" [style.color]="data.margin >0 ? 'green': 'red'">{{data.margin | percent:'.2'}}</p>
@@ -13,15 +13,7 @@
  </div> -->
 
 
-<!--  <div class="card-columns" *ngIf="(artists | async) as newArtistsData">
-    <div class="card" *ngFor="let artist of newArtistsData" >
-      <pre>{{artist|json}}</pre>
-      <img [src]="artist.images | noImages" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{artist.name}}</h5>
-      </div>
-    </div>
-</div> --> 
+-> 
 
 
 

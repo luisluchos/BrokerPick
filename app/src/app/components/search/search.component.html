@@ -1,0 +1,23 @@
+<p>search works!</p>
+<div class="row input-group rounded">
+    <div class="col">
+        <input #userText type="search" (keyup)="buscar(userText.value)" class="form-control rounded" placeholder="Buscar user">
+    </div>
+</div>
+<hr>
+
+<div class="container-fluid">
+<div class="row row-cols-2 row-cols-md-5 g-2" *ngIf="(users | async) as marginsData">
+    <div class="col card puntero mx-center border-none" (click)= "verUserDetail(marginData)"  *ngFor= "let marginData of marginsData">
+      <div  class="card h-100 card border-color m-2">
+        <img [src]="(marginData._id.picture | noImages)" class="img-thumbnail" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{marginData._id.name}}</h5>
+          <p class="card-text" [style.color]="marginData.totalMargin >0 ? 'green': 'red'">Rentabilidad acumulada: <b>{{marginData.totalMargin | percent:'.2'}}</b></p>
+          <p class="card-text">Operaciones cerradas: <b>{{marginData.totalTransactions}}</b></p>
+          <!-- <a [routerLink]="'/userList/'+ id"><p>Ver Usuario</p></a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,11 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 const walletsRouter = require('../routes/wallets.router')
+const socialsRouter = require('../routes/socials.router')
 
 
 
 
 router.use("/wallets", walletsRouter);
+router.use("/socials", socialsRouter);
 
 
 router.use('*', (req, res, next)=>{

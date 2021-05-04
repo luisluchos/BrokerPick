@@ -1,16 +1,44 @@
 <app-user-card-snippet></app-user-card-snippet>
 <app-margin></app-margin>
 
-<div class="d-flex justify-content-start font-weight-bold">
-<p class="mr-4">Name</p>
-<p class="mr-4">Purchase Price</p>
-<p class="mr-4">Market Price</p>
-<p class="mr-4">%</p>
+
+>
+
+<div *ngIf="(margin | async) as marginData">
+    <img [src]="marginData._id.picture" alt="">    
+    <h1>Name: {{marginData._id.name}}</h1>
+    <p [style.color]="marginData.margin >0 ? 'green': 'red'">Margin: {{marginData.margin | percent:'.2'}}</p>
+    <app-social [userToFollow]="marginData"></app-social>
 </div>
 
-<h1>Operaciones abiertas{{myWallet|json}}</h1>
+<h1>Operaciones abiertas</h1>
+<div class="d-flex justify-content-start font-weight-bold">
+    <p class="mr-4 ">Name</p>
+    <p class="mr-4">Purchase Price</p>
+    <p class="mr-4">Market Price</p>
+</div>
 
+<div class="d-flex justify-content-start" *ngFor= "let coin of myWallet">
+<p class="mr-4 ">{{coin.coinName}}</p>
+<p class="mr-4">{{coin.purchase_price}}</p>
+<p class="mr-4">{{coin.market_price}}</p>
 
-<div *ngFor= "let coin of myWallet">
-    {{coin.coinName}}
- </div>
+</div>
+
+<h2 class="p-4">Histórico</h2>
+ <div class="d-flex justify-content-start font-weight-bold">
+    <p class="mr-4">Name</p>
+    <p class="mr-4">Purchase Price</p>
+    <p class="mr-4">Market Price</p>
+    <p class="mr-4">%</p>
+</div>
+
+<div *ngIf="(historicalData | async) as newData">
+    <div class="d-flex justify-content-start"  *ngFor="let data of newData">
+     <p class="mr-4 ">{{data.coin | uppercase}}</p>
+     <p class="mr-4">{{data.purchase_price}}</p>
+     <p class="mr-4">{{data.sold_price}}</p>
+     <p class="mr-4" [style.color]="data.margin >0 ? 'green': 'red'">{{data.margin | percent:'.2'}}</p>
+    </div>
+</div> 
+

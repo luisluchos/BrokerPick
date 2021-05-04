@@ -55,8 +55,28 @@ export class ApiService {
       return this.http.get(`${this.BASE_URI}/wallets/userMargin`,{params:params});
   };
 
-  getAllMargins(): Observable<any> {
-      return this.http.get(`${this.BASE_URI}/wallets/usersMargin`);
+  getMarginByUserName(user:any="", limit:string): Observable<any> {
+    let params = new HttpParams()
+      .set('user', user)
+      .set('limit', limit)
+      return this.http.get(`${this.BASE_URI}/wallets/usersName`, {params:params});
+  };
+
+  getAllMargins(limit:string= "5"): Observable<any> {  //por defecto nos traeremos los 5 top users
+    let params = new HttpParams()
+    .set('limit', limit)
+      return this.http.get(`${this.BASE_URI}/wallets/usersMargin`,{params:params});
+  };
+
+  getFollowsByUser(user:string): Observable<any> {
+    let params = new HttpParams()
+      .set('user', user)
+      return this.http.get(`${this.BASE_URI}/socials`,{params:params});
+  };
+
+
+  addFollow(payload:any): Observable<any>{
+    return this.http.post(`${this.BASE_URI}/socials`, payload);
   };
 
 
