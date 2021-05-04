@@ -1,12 +1,12 @@
 
   <h1>Top traders</h1>
-  <div class="row row-cols-2 row-cols-md-5 g-2 m-4" *ngIf="(margin | async) as marginsData">
+  <div class="row row-cols-2 row-cols-md-5 g-2 m-4 " *ngIf="(margin | async) as marginsData">
     <div class="col card puntero" (click)= "verUserDetail(marginData)"  *ngFor= "let marginData of marginsData">
       <div class="card h-100 card border-primary border-color">
         <img [src]="(marginData._id.picture | noImages)" class="img-thumbnail" alt="...">
-        <div class="card-body">
+        <div class="card-body " >
           <h5 class="card-title">{{marginData._id.name}}</h5>
-          <p class="card-text " [style.color]="marginData.totalMargin >0 ? 'green': 'red'">Rentabilidad acumulada: <b>{{marginData.totalMargin | percent:'.2'}}</b></p>
+          <p class="card-text " [style.color]="marginData.totalMargin >0 ? '#2ECC71': 'red'">Rentabilidad acumulada: <b>{{marginData.totalMargin | percent:'.2'}}</b></p>
           <p class="card-text">Operaciones cerradas: <b>{{marginData.totalTransactions}}</b></p>
           <!-- <a [routerLink]="'/userList/'+ id"><p>Ver Usuario</p></a> -->
         </div>

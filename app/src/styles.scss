@@ -2,21 +2,29 @@
 body {
     background-color: rgb(238, 241, 248);
     margin:0px; 
-    padding:0px
+    padding:0px;
+    font-size: 100%;
+    
 }
 * {
     margin:0px; 
     padding:0px;
 }
 
-@media screen and (min-width: 480px) {
-    #inner{
-        width: 50%;
-    }
+h2, h1, h5{
+    color: #1D3557;
 }
 
-@media screen and (min-width: 780px) {
-    #inner{
-        width: 33%;
+
+    .card{
+        border: none;
+        background-color:#F1FAEE;
     }
-}
+    .border-color{
+        border-radius: 20px;
+        background-color: #F1FAEE;
+        border-style: solid;
+        border-width:1px;
+        border-color: #1D3557 !important;
+    }
+  

@@ -64,7 +64,6 @@ export class SocialComponent implements OnInit {
 
    save(event:any) {
     event.preventDefault() 
-
     this.auth.user$.subscribe((data:any) =>{
       console.log(data);
        
@@ -88,6 +87,8 @@ export class SocialComponent implements OnInit {
      });       
   }; 
 
+
+  
   
 }
   

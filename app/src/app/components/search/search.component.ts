@@ -4,12 +4,18 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
 
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
+
+
+
 export class SearchComponent implements OnInit {
+
+  
 
   limit:string = "30"
 

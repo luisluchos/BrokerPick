@@ -1,19 +1,14 @@
 
    <div *ngIf="(historicalData | async) as newData">
        <div class="d-flex justify-content-start"  *ngFor="let data of newData">
-        <p class="mr-4 ">{{data.coin | uppercase}}</p>
-        <p class="mr-4">{{data.purchase_price}}</p>
-        <p class="mr-4">{{data.sold_price}}</p>
-        <p class="mr-4" [style.color]="data.margin >0 ? 'green': 'red'">{{data.margin | percent:'.2'}}</p>
+        <p class="text-left" >{{data.coin | uppercase}}</p>
+        <p class="text-right" >{{data.purchase_price}}</p>
+        <p class="text-right" >{{data.sold_price}}</p>
+        <p class="text-right"  [style.color]="data.margin >0 ? 'green': 'red'">{{data.margin | percent:'.2'}}</p>
        </div>
   </div>   
 
-<!-- <div *ngFor= "let coin of historicalData|json">
-    {{coin.name}}
- </div> -->
 
-
--> 
 
 
 

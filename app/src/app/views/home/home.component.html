@@ -1,0 +1,34 @@
+
+<div class="container-fluid">
+
+
+<app-user-card-snippet></app-user-card-snippet>
+ 
+
+
+
+  <h2 class="text-center my-4">Las 100 principales monedas según la capitalización de mercado</h2>
+<table class="table container my-4" >
+    <thead >
+      <tr>
+        <th scope="col">#</th>
+        <th class="text-right" scope="col">Current Price</th>
+        <th class="text-right" scope="col">Price change 24h</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let coin of coins|async">
+        <th scope="row" class="text-left">{{coin.id}}</th>
+        <td class="text-right">{{coin.current_price}}</td>
+        <td class="text-right" [style.color]="coin.price_change_percentage_24h >0 ? 'green': 'red'">{{coin.price_change_percentage_24h / 100 | percent:'.2'}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+

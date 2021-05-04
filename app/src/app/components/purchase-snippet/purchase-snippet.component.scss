@@ -1,7 +1,7 @@
 p {
     width: 20%;
     margin: 10px;
-    background: #F4F5F6;
+    background: #F1FAEE;;
     border-radius: 10px;
     padding: 20px;
 }
@@ -12,24 +12,13 @@ p {
     margin-bottom: 20px;
 } */
 
-@media screen and (min-width: 480px) {
-    #inner{
-        width: 50%;
-    }
-}
-
-@media screen and (min-width: 780px) {
-    #inner{
-        width: 33%;
-    }
-}
-
 @import url('https://fonts.googleapis.com/css?family=Barrio|Montserrat:700');
-$green: #246e6a;
+$green: #457B9D;
 
 
 
 button {
+  width: 200px;
   margin: 10px;
   padding: 10px;
   color: #fafafa;

@@ -1,15 +1,80 @@
 p {
     width: 20%;
-    background:#F4F5F6;
+    margin: 10px;
+    background: #F1FAEE;;
     border-radius: 10px;
     padding: 20px;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Barrio|Montserrat:700');
+$green: #E63946;
+
 button {
-    width: 10%;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    color: #fafafa;
+    background-color: $green;
+    border: none;
     border-radius: 10px;
-    margin-bottom: 20px;
-}
+    box-shadow: 1px 1px 10px rgba(50,50,50,.4);
+    transition: .3s all ease;
+    letter-spacing: .1rem;
+    font-size: .85rem;
+    position: relative;
+    padding-left: 2.5rem;
+    
+    &:after,
+    &:before {
+      position: absolute;
+      font-family: 'Barrio', sans-serif;
+      font-weight: bold;
+      font-size: 1rem;
+      color: white;
+      transition: .3s all ease;
+     
+    }
+    
+    &:before {
+      content: '_';
+      position: absolute;
+      left: 1.4rem;
+      top: .9rem;
+    }
+    
+    &:after {
+      content: '>';
+      position: absolute;
+      left: .8rem;
+      top: 1rem;
+    }
+    
+    &:hover {
+      box-shadow: 1px 1px 20px rgba(224, 135, 18, 0.2);
+      top: -.1rem;
+      right: -.1rem;
+      cursor: pointer;
+      
+      
+      &:before {
+        content: '_';
+        position: absolute;
+        left: .8rem;
+        top: .7rem;
+        transform: translateY(-1px);
+      }
+    
+      &:after {
+        content: '>';
+        position: absolute;
+        left: 1.1rem;
+        top: 1rem;
+      }
+    }
+  }
+  button:active {
+      background-color: rgb(24, 243, 20);
+  }
 
 @media screen and (min-width: 480px) {
     #inner{

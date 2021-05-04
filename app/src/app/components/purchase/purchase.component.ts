@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { timer } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { mergeMap } from 'rxjs/operators'
 
 import { FormBuilder } from '@angular/forms';
 import { AuthService } from '@auth0/auth0-angular';
+
+/* interface Coins {
+  id: string;
+  current_price: number; 
+} */
 
 @Component({
   selector: 'app-purchase',
@@ -13,7 +18,7 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class PurchaseComponent implements OnInit {
 
-  coins:any = []
+  coins: Observable<any> = new Observable()
  
 
   constructor(private apiServce: ApiService,private fb: FormBuilder, public auth: AuthService) { }

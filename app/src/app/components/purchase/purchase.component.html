@@ -1,6 +1,6 @@
-
-<div>
-  <p>purchase works!</p>
+<h1 class="my-4">Top coins</h1>
+<hr>
+<div class="container justify-content-center my-4">
   <div  *ngFor= "let coin of coins|async">
     <app-purchase-snippet   [coin]= "coin.id" [price]= "coin.current_price"></app-purchase-snippet>
 </div>

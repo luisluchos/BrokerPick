@@ -3,25 +3,32 @@
 <app-margin></app-margin>
 
 <hr>
-
-<h2 class="p-4">Operaciones abiertas</h2>
-<div class="d-flex justify-content-start font-weight-bold">
-    <p class="mr-4">Name</p>
-    <p class="mr-4">Purchase Price</p>
-    <p class="mr-4">Market Price</p>
-    <p class="mr-4">%</p>
+<div class="container">
+    <h2 class="p-4">Operaciones abiertas</h2>
+    <div class="d-flex justify-content-center font-weight-bold">
+        <p class="text-left">Name</p>
+        <p class="text-right">Purchase Price</p>
+        <p class="text-right">Market Price</p>
+        <p class="text-right">%</p>
+        <p></p>
+    </div>
+    
+    <div *ngFor= "let coin of myWallet">
+        <app-user-wallet-snippet [coin]="coin.coinName" [purchase_price] = "coin.purchase_price" [market_price]="coin.market_price" [id]="coin.id"></app-user-wallet-snippet>
+    </div>
+    
+    
+     <hr>
+     <h2 class="p-4">Histórico</h2>
+     <div class="d-flex justify-content-center font-weight-bold">
+        <p class="text-left">Name</p>
+        <p class="text-right">Purchase Price</p>
+        <p class="text-right">Market Price</p>
+        <p class="text-right">%</p>
+        <p></p>
+    </div>
+    <app-wallet-historical ></app-wallet-historical>
 </div>
 
-<div *ngFor= "let coin of myWallet">
-    <app-user-wallet-snippet [coin]="coin.coinName" [purchase_price] = "coin.purchase_price" [market_price]="coin.market_price" [id]="coin.id"></app-user-wallet-snippet>
- </div>
- <hr>
- <h2 class="p-4">Histórico</h2>
- <div class="d-flex justify-content-start font-weight-bold">
-    <p class="mr-4">Name</p>
-    <p class="mr-4">Purchase Price</p>
-    <p class="mr-4">Market Price</p>
-    <p class="mr-4">%</p>
-</div>
-<app-wallet-historical ></app-wallet-historical>
+
  

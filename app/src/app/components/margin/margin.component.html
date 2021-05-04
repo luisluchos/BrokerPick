@@ -1,2 +1,5 @@
-<p>margin works! {{margin |async | percent:'.2'}}</p>
+<div *ngIf="(margin | async) as marginData">
+    <h2 [style.color]="   marginData >0 ? 'green': 'red'">Margen: {{marginData | percent:'.2'}}</h2>
+</div>
+
 

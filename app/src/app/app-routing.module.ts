@@ -6,8 +6,8 @@ import { TradesComponent } from './components/trades/trades.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserWalletDetailsComponent } from './components/user-wallet-details/user-wallet-details.component';
 import { UserPrivateWalletComponent } from './components/user-private-wallet/user-private-wallet.component';
-import { HomeComponent } from './components/views/home/home.component';
-import { PageNotFoundComponent } from './components/views/page-not-found/page-not-found.component';
+import { HomeComponent } from './views/home/home.component';
+import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 import { TradesResolver } from './services/trades.resolver';
 import { HomeResolver } from './services/home.resolver';
 
