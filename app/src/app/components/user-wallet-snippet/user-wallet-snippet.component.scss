@@ -12,3 +12,11 @@ button {
 
 } 
 
+button:hover {
+  background-color: rgb(243, 83, 20);
+}
+
+button:active {
+  background-color: rgb(24, 243, 20);
+}
+
