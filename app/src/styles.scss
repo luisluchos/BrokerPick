@@ -1,18 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     background-color: rgb(238, 241, 248);
-    margin:0px; 
-    padding:0px;
-    font-size: 100%;
+   /*  margin:0px; 
+    padding:0px; */
+    font-size: 1em  /* calc(1em + 1vw) */ ; 
     
 }
-* {
+/* * {
     margin:0px; 
     padding:0px;
-}
+} */
 
 h2, h1, h5{
     color: #1D3557;
+    /* font-size: calc(0.5em + 0.5vw); */
 }
 
 
@@ -28,3 +29,20 @@ h2, h1, h5{
         border-color: #1D3557 !important;
     }
   
+
+    @media only screen and (max-width: 700px) {
+
+        * {
+            margin:0px; 
+            padding:0px;
+        }
+        body {
+            background-color: red;
+           /*  margin:0px; 
+            padding:0px; */
+            font-size: 3vw  /* calc(1em + 1vw) */ ;        
+        }
+        .ocultar-div{
+            display:none;
+            }
+    }

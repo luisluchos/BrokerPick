@@ -1,7 +1,10 @@
-<div class="d-flex justify-content-center">
-    <p class="text-left" >{{coin | uppercase}}</p>
-    <p class="text-right" >{{purchase_price}}</p>
-    <p class="text-right" >{{market_price}}</p>
-    <p class="text-right" [style.color]="market_price-purchase_price >0 ? 'green': 'red'">{{((market_price-purchase_price) / purchase_price) | percent:'.2' }}%</p> 
-    <button (click)="sell($event)">Sell</button>
+<div class="row d-flex mx-2">
+    
+        <p class="col-6 col-md-2 text-left" >{{coin | uppercase}}</p>
+        <p class="col-2 col-md-2 text-right" >{{purchase_price}}</p>
+        <p class="col-2 col-md-2 text-right" >{{market_price}}</p>
+        <p class="col-2 col-md-2 text-right" [style.color]="market_price-purchase_price >0 ? 'green': 'red'">{{((market_price-purchase_price) / purchase_price) | percent:'.2' }}</p>  
+    
+
+    <button class="col-12 col-md-2 btn btn-primary mx-auto" (click)="sell($event)">Sell</button>
 </div>

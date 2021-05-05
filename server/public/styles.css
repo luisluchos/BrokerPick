@@ -7,16 +7,17 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   background-color: #eef1f8;
-  margin: 0px;
-  padding: 0px;
-  font-size: 100%;
+  /*  margin:0px; 
+    padding:0px; */
+  font-size: 1em;
 }
-* {
-  margin: 0px;
-  padding: 0px;
-}
+/* * {
+    margin:0px; 
+    padding:0px;
+} */
 h2, h1, h5 {
   color: #1D3557;
+  /* font-size: calc(0.5em + 0.5vw); */
 }
 .card {
   border: none;
@@ -28,6 +29,21 @@ h2, h1, h5 {
   border-style: solid;
   border-width: 1px;
   border-color: #1D3557 !important;
+}
+@media only screen and (max-width: 700px) {
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    background-color: red;
+    /*  margin:0px; 
+            padding:0px; */
+    font-size: 3vw;
+  }
+  .ocultar-div {
+    display: none;
+  }
 }
 
 
