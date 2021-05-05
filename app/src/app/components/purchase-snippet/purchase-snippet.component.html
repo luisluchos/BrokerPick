@@ -1,6 +1,6 @@
 <div class="row d-flex justify-content-center">
     <p class=" col-4 col-md-2 text-left ">{{coin | uppercase}}</p>
-    <P class=" col-2 col-md-2 text-right ">{{price}}</P>
+    <P class=" col-2 col-md-2 text-right ">{{price | currency}}</P>
     <button class="col-4 col-md-2 btn btn-primary" (click)="save($event)">Send to my wallet</button>
 </div>
 

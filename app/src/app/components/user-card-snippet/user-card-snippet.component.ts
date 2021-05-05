@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class UserCardSnippetComponent implements OnInit {
 
-  @Input() limit:string=""
+  @Input() limit:string="6"
 
   idSubscription:any
   margin:Observable<any> = new Observable()

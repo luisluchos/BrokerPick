@@ -1,13 +1,13 @@
+<div class="text-center">
 
-<div class="container-fluid">
+  <h2 class="m-4">Top Traders</h2>
 
+<app-user-card-snippet class="ocultar-div"></app-user-card-snippet>
+<hr>
+   
 
-<app-user-card-snippet></app-user-card-snippet>
- 
+<h3 class="my-4">Las 100 principales monedas según la capitalización de mercado</h3>
 
-
-
-  <h2 class="text-center my-4">Las 100 principales monedas según la capitalización de mercado</h2>
 <table class="table container my-4" >
     <thead >
       <tr>
@@ -20,13 +20,15 @@
     <tbody>
       <tr *ngFor= "let coin of coins|async">
         <th scope="row" class="text-left">{{coin.id}}</th>
-        <td class="text-right">{{coin.current_price}}</td>
+        <td class="text-right">{{coin.current_price | currency}}</td>
         <td class="text-right" [style.color]="coin.price_change_percentage_24h >0 ? 'green': 'red'">{{coin.price_change_percentage_24h / 100 | percent:'.2'}}</td>
         
       </tr>
     </tbody>
   </table>
 </div>
+
+
 
 
 

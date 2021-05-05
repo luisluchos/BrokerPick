@@ -1,10 +1,10 @@
 
    <div *ngIf="(historicalData | async) as newData">
        <div class="row d-flex mx-2 " *ngFor="let data of newData">
-        <p class="col-6 col-md-2 text-left" >{{data.coin | uppercase}}</p>
-        <p class="col-2 col-md-2 text-right" >{{data.purchase_price}}</p>
-        <p class="col-2 col-md-2 text-right" >{{data.sold_price}}</p>
-        <p class="col-2 col-md-2 text-right"  [style.color]="data.margin >0 ? 'green': 'red'">{{data.margin | percent:'.2'}}</p>
+        <p class="col-6 col-md-3 text-left" >{{data.coin | uppercase}}</p>
+        <p class="col-2 col-md-3 text-right" >{{data.purchase_price | currency}}</p>
+        <p class="col-2 col-md-3 text-right" >{{data.sold_price | currency}}</p>
+        <p class="col-2 col-md-3 text-right"  [style.color]="data.margin >0 ? 'green': 'red'">{{data.margin | percent:'.2'}}</p>
        </div>
   </div>   
 
@@ -12,3 +12,4 @@
 
 
 
+  

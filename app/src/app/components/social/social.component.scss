@@ -1,17 +1,10 @@
 
-
-
-
 .like-button {
   cursor: pointer;
+ 
+  width: 10%;
   &::before {
     font-size: 2em;
-    border-radius: 20px;
-    border-color: black;
-    width: 2em;
-    border-style: solid;
     content: '♥';
-    position: absolute;
   }
-
 }

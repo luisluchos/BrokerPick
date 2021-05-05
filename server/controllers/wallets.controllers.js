@@ -71,7 +71,7 @@ module.exports = {
         "$sum":{
           "$sum":"$coins.coin_sold"
         } 
-      }}}]).limit(limit)
+      }}}]).sort({'totalMargin':-1}).limit(limit)
 res.json({userMargin: margin});
 }),
 

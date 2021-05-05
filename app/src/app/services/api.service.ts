@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  BASE_URI = 'https://broker-pick.herokuapp.com/api'// 'http://localhost:3000/api';
+  BASE_URI = 'https://broker-pick.herokuapp.com/api' //'http://localhost:3000/api';
   private url= "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&"
   private url2= "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin"
   private currency ="&vs_currencies=usd"
@@ -62,7 +62,7 @@ export class ApiService {
       return this.http.get(`${this.BASE_URI}/wallets/usersName`, {params:params});
   };
 
-  getAllMargins(limit:string= "5"): Observable<any> {  //por defecto nos traeremos los 5 top users
+  getAllMargins(limit:string= "4"): Observable<any> {  //por defecto nos traeremos los 6 top users
     let params = new HttpParams()
     .set('limit', limit)
       return this.http.get(`${this.BASE_URI}/wallets/usersMargin`,{params:params});

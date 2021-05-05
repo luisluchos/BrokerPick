@@ -15,7 +15,7 @@ body {
     margin:0px; 
     padding:0px;
 } */
-h2, h1, h5 {
+h2, h1, h3, h5 {
   color: #1D3557;
   /* font-size: calc(0.5em + 0.5vw); */
 }
@@ -36,13 +36,19 @@ h2, h1, h5 {
     padding: 0px;
   }
   body {
-    background-color: red;
+    background-color: #eef1f8;
     /*  margin:0px; 
             padding:0px; */
-    font-size: 3vw;
+    font-size: 2.5vw;
+  }
+  h3 {
+    font-size: 5vw;
   }
   .ocultar-div {
     display: none;
+  }
+  .nav-item {
+    font-size: 5vw;
   }
 }
 
