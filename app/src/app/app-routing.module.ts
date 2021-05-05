@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'', pathMatch: 'full', redirectTo: '/home'},
   {path: 'home', pathMatch: 'full', component: HomeComponent/* ,resolve: { coins: HomeResolver} */},
   {path: 'userList', pathMatch: 'full', component: UserListComponent},
-  {path: 'userList/:id',pathMatch: 'full',component: UserWalletDetailsComponent},
+  {path: 'userList/:id',pathMatch: 'full',component: UserWalletDetailsComponent, canActivate: [AuthGuard]},
   {path: 'purchase', pathMatch: 'full', component: PurchaseComponent,canActivate: [AuthGuard],resolve: {trades: TradesResolver}},
   {path: 'userwallet', pathMatch: 'full', component: UserPrivateWalletComponent,canActivate: [AuthGuard]},
   {path:'404', component: PageNotFoundComponent},
